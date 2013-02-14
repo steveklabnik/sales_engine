@@ -31,15 +31,15 @@ class SalesEngine::MerchantTest < MiniTest::Unit::TestCase
     end
     rand1 = SalesEngine::Merchant.random
     rand2 = SalesEngine::Merchant.random
-    refute_same(rand1.name, rand2.name)
+    refute_equal(rand1.name, rand2.name)
   end
 
   def test_it_can_find_by_id
     @csv.each do |row|
       SalesEngine::Merchant.create(row)
     end
-    merchant = SalesEngine:: Merchant.find_by_id(1)
-    assert_equal(merchant, "Schroeder-Jerde")
+    merchant = SalesEngine::Merchant.find_by_id(1)
+    assert_equal(merchant.name, "Schroeder-Jerde")
   end
 
 end
