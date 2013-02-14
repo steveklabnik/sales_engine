@@ -22,5 +22,9 @@ module SalesEngine
       @merchants
     end
 
+    def self.find_by_id(id)
+      all.find
+    end
+
   end
 end
