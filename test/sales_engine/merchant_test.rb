@@ -34,6 +34,12 @@ class SalesEngine::MerchantTest < MiniTest::Unit::TestCase
     refute_same(rand1.name, rand2.name)
   end
 
-  def teardown
+  def test_it_can_find_by_id
+    @csv.each do |row|
+      SalesEngine::Merchant.create(row)
+    end
+    merchant = SalesEngine:: Merchant.find_by_id(1)
+    assert_equal(merchant, "Schroeder-Jerde")
   end
+
 end
