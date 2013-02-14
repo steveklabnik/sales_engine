@@ -1,8 +1,11 @@
 require './lib/sales_engine/merchant_builder'
+require './lib/sales_engine/finder'
 
 module SalesEngine
 
   class Merchant
+
+    extend SalesEngine::Finder
     attr_reader :id, :name
 
     def initialize(data="")

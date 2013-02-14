@@ -24,6 +24,16 @@ class SalesEngine::MerchantTest < MiniTest::Unit::TestCase
     assert_operator(3, :<=, SalesEngine::Merchant.all.size)
   end
 
+  def test_random_returns_random_merchant
+    @csv = CSV.open("test/support/merchants_test.csv", :headers => true, :header_converters => :symbol)
+    @csv.each do |row|
+      SalesEngine::Merchant.create(row)
+    end
+    rand1 = SalesEngine::Merchant.random
+    rand2 = SalesEngine::Merchant.random
+    refute_same(rand1.name, rand2.name)
+  end
+
   def teardown
   end
 end
