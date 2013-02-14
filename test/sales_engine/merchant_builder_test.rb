@@ -7,6 +7,6 @@ class SalesEngine::MerchantBuilderTest < MiniTest::Unit::TestCase
   def test_it_is_initialized_from_a_csv
     data = "test/support/merchants_test.csv"
     merchants = SalesEngine::MerchantBuilder.from_csv(data)
-    assert_equal(3, merchants.count)
+    assert_equal(CSV, merchants.class)
   end
 end
