@@ -34,6 +34,4 @@ class SalesEngine::MerchantTest < MiniTest::Unit::TestCase
     refute_same(rand1.name, rand2.name)
   end
 
-  def teardown
-  end
 end
