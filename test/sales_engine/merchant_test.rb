@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require 'minitest/pride'
+require 'minitest/emoji'
 
 require './lib/sales_engine/merchant'
 
@@ -40,6 +40,14 @@ class SalesEngine::MerchantTest < MiniTest::Unit::TestCase
     end
     merchant = SalesEngine::Merchant.find_by_id(1)
     assert_equal(merchant.name, "Schroeder-Jerde")
+  end
+
+  def test_it_can_find_by_name
+    @csv.each do |row|
+      SalesEngine::Merchant.create(row)
+    end
+    merchant = SalesEngine::Merchant.find_by_name("Schroeder-Jerde")
+    assert_equal(merchant.id, 1)
   end
 
 end

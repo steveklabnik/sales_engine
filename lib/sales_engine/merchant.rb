@@ -22,9 +22,9 @@ module SalesEngine
       @merchants
     end
 
-    #def self.find_by_id(id)
-    #  all.find {|merchant| merchant.id == id}
-    #end
+    def self.find_by_name(value)
+      find_by_("name", value)
+    end
 
   end
 end
