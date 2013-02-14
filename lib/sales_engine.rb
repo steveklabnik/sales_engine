@@ -12,8 +12,8 @@ end
 
 SalesEngine.startup
 
-merchants = SalesEngine::Merchant.all
+SalesEngine::Merchant.find_by_id(1)
 
-merchants.each do |merchant|
-  puts "#{merchant.id} = #{merchant.name}"
-end
+#merchants.each do |merchant|
+#  puts "#{merchant.id} = #{merchant.name}"
+#end
