@@ -9,7 +9,7 @@ module SalesEngine
     attr_reader :id, :customer_id
 
     def initialize(data="")
-      @id = data[:id]
+      @id = data[:id].to_i
       @customer_id = data[:customer_id]
     end
 

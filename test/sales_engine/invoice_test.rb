@@ -3,7 +3,7 @@ require 'minitest/pride'
 
 require './lib/sales_engine/invoice'
 
-class SalesEngine::InvoicesTest < MiniTest::Unit::TestCase
+class SalesEngine::InvoiceTest < MiniTest::Unit::TestCase
 
   def setup
     @csv = CSV.open("test/support/invoice_test.csv", :headers => true, :header_converters => :symbol)
@@ -13,7 +13,7 @@ class SalesEngine::InvoicesTest < MiniTest::Unit::TestCase
     @first_record = @csv.first
     invoice = SalesEngine::Invoice.new(@first_record)
     assert_kind_of(SalesEngine::Invoice, invoice)
-    assert_equal("26", invoice.customer_id)
+    assert_equal("1", invoice.customer_id)
   end
 
   def test_it_creates_array_of_invoice_objects
