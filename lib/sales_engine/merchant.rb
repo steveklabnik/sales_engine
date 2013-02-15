@@ -26,5 +26,9 @@ module SalesEngine
       find_by_("name", value)
     end
 
+    def self.find_all_by_name(value)
+      find_all_by_("name", value)
+    end
+
   end
 end

@@ -10,7 +10,12 @@ module SalesEngine
     end
 
     def find_by_(attr, value)
-      all.find { |item| item.send(attr).downcase == value.downcase }
+      #all.find { |item| item.send(attr).downcase == value.downcase }
+      find_all_by_(attr, value).first
+    end
+
+    def find_all_by_(attr, value)
+      all.select { |item| item.send(attr).downcase == value.downcase }
     end
 
   end

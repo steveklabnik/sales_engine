@@ -50,4 +50,20 @@ class SalesEngine::MerchantTest < MiniTest::Unit::TestCase
     assert_equal(merchant.id, 1)
   end
 
+  def test_find_by_only_returns_one_record
+    @csv.each do |row|
+      SalesEngine::Merchant.create(row)
+    end
+    merchant = SalesEngine::Merchant.find_by_name("Schroeder-Jerde")
+    assert_equal(merchant.id, 1)
+  end
+
+  def test_find_all_by_returns_multiple_records
+    @csv.each do |row|
+      SalesEngine::Merchant.create(row)
+    end
+    merchants = SalesEngine::Merchant.find_all_by_name("Schroeder-Jerde")
+    assert_operator(1, :<=, merchants.size)
+  end
+
 end
