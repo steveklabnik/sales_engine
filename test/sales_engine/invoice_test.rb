@@ -4,15 +4,43 @@ require 'minitest/pride'
 require './lib/sales_engine/invoice'
 
 class SalesEngine::InvoicesTest < MiniTest::Unit::TestCase
-  def test_it_exists
-    invoice = SalesEngine::Invoice.new
-    assert_kind_of(SalesEngine::Invoice, invoice)
+
+  def setup
+    @csv = CSV.open("test/support/invoice_test.csv", :headers => true, :header_converters => :symbol)
   end
 
-  def test_it_is_initialized_from_a_csv_of_data
-    data = "data/invoices.csv"
-    invoices = SalesEngine::Invoice.new(data).invoices
-    assert_equal(4843, invoices.count)
+  def test_it_exists
+    @first_record = @csv.first
+    invoice = SalesEngine::Invoice.new(@first_record)
+    assert_kind_of(SalesEngine::Invoice, invoice)
+    assert_equal("26", invoice.customer_id)
   end
+
+  def test_it_creates_array_of_invoice_objects
+    count = 1
+    @csv.each do |row|
+      SalesEngine::Invoice.create(row)
+    end
+    assert_equal(5, :<=, SalesEngine::Invoice.all.size)
+  end
+
+  def test_random_returns_random_invoice
+    @csv = CSV.open("test/support/invoice_test.csv", :headers => true, :header_converters => :symbol)
+    @csv.each do |row|
+      SalesEngine::Invoice.create(row)
+    end
+    rand1 = SalesEngine::Invoice.random
+    rand2 = SalesEngine::Invoice.random
+    refute_same(rand1.customer_id, rand2.customer_id)
+  end
+
+  def test_it_can_find_by_id
+    @csv.each do |row|
+      SalesEngine::Invoice.create(row)
+    end
+    invoice = SalesEngine::Invoice.find_by_id(1)
+    assert_equal(invoice, "26")
+  end
+  
 end
     
