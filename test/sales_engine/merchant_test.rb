@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require 'minitest/pride'
+require 'minitest/emoji'
 
 require './lib/sales_engine/merchant'
 
@@ -31,15 +31,39 @@ class SalesEngine::MerchantTest < MiniTest::Unit::TestCase
     end
     rand1 = SalesEngine::Merchant.random
     rand2 = SalesEngine::Merchant.random
-    refute_same(rand1.name, rand2.name)
+    refute_equal(rand1.name, rand2.name)
   end
 
   def test_it_can_find_by_id
     @csv.each do |row|
       SalesEngine::Merchant.create(row)
     end
-    merchant = SalesEngine:: Merchant.find_by_id(1)
-    assert_equal(merchant, "Schroeder-Jerde")
+    merchant = SalesEngine::Merchant.find_by_id(1)
+    assert_equal(merchant.name, "Schroeder-Jerde")
+  end
+
+  def test_it_can_find_by_name
+    @csv.each do |row|
+      SalesEngine::Merchant.create(row)
+    end
+    merchant = SalesEngine::Merchant.find_by_name("Schroeder-Jerde")
+    assert_equal(merchant.id, 1)
+  end
+
+  def test_find_by_only_returns_one_record
+    @csv.each do |row|
+      SalesEngine::Merchant.create(row)
+    end
+    merchant = SalesEngine::Merchant.find_by_name("Schroeder-Jerde")
+    assert_equal(merchant.id, 1)
+  end
+
+  def test_find_all_by_returns_multiple_records
+    @csv.each do |row|
+      SalesEngine::Merchant.create(row)
+    end
+    merchants = SalesEngine::Merchant.find_all_by_name("Schroeder-Jerde")
+    assert_operator(1, :<=, merchants.size)
   end
 
 end

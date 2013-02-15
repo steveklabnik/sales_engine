@@ -9,7 +9,7 @@ module SalesEngine
     attr_reader :id, :name
 
     def initialize(data="")
-      @id = data[:id]
+      @id = data[:id].to_i
       @name = data[:name]
     end
 
@@ -20,6 +20,14 @@ module SalesEngine
 
     def self.all
       @merchants
+    end
+
+    def self.find_by_name(value)
+      find_by_("name", value)
+    end
+
+    def self.find_all_by_name(value)
+      find_all_by_("name", value)
     end
 
   end
