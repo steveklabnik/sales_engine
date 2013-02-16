@@ -1,7 +1,7 @@
 {
   "Unit Tests": {
     "coverage": {
-      "/Users/joshmejia/code/gschool/sales_engine/lib/sales_engine/customer_builder.rb": [
+      "/Users/7maples/projects/sales_engine/lib/sales_engine/customer_builder.rb": [
         1,
         1,
         null,
@@ -23,7 +23,7 @@
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/lib/sales_engine/customer.rb": [
+      "/Users/7maples/projects/sales_engine/lib/sales_engine/customer.rb": [
         1,
         1,
         null,
@@ -68,13 +68,9 @@
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/lib/sales_engine/finder.rb": [
+      "/Users/7maples/projects/sales_engine/lib/sales_engine/finder.rb": [
         1,
         1,
-        null,
-        1,
-        12,
-        null,
         null,
         1,
         12,
@@ -85,13 +81,17 @@
         null,
         null,
         1,
-        2839,
+        17,
+        null,
+        null,
+        1,
+        3010,
         null,
         null,
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/test/sales_engine/customer_test.rb": [
+      "/Users/7maples/projects/sales_engine/test/sales_engine/customer_test.rb": [
         1,
         1,
         1,
@@ -171,7 +171,7 @@
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/test/sales_engine/invoice_builder_test.rb": [
+      "/Users/7maples/projects/sales_engine/test/sales_engine/invoice_builder_test.rb": [
         1,
         1,
         1,
@@ -186,83 +186,7 @@
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/lib/sales_engine/invoice_builder.rb": [
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/joshmejia/code/gschool/sales_engine/lib/sales_engine/invoice.rb": [
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        31,
-        31,
-        31,
-        31,
-        null,
-        null,
-        1,
-        30,
-        30,
-        null,
-        null,
-        1,
-        7,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/joshmejia/code/gschool/sales_engine/lib/sales_engine/transaction_builder.rb": [
+      "/Users/7maples/projects/sales_engine/lib/sales_engine/invoice_builder.rb": [
         1,
         1,
         null,
@@ -284,7 +208,7 @@
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/lib/sales_engine/transaction.rb": [
+      "/Users/7maples/projects/sales_engine/lib/sales_engine/invoice.rb": [
         1,
         1,
         null,
@@ -296,20 +220,101 @@
         1,
         null,
         1,
-        25,
-        25,
-        25,
-        25,
-        25,
+        4874,
+        4874,
+        4874,
+        4874,
         null,
         null,
         1,
-        24,
-        24,
+        4873,
+        4873,
         null,
         null,
         1,
-        7,
+        8,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/7maples/projects/sales_engine/lib/sales_engine/transaction_builder.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/7maples/projects/sales_engine/lib/sales_engine/transaction.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        38,
+        38,
+        38,
+        38,
+        38,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        36,
+        36,
+        null,
+        null,
+        1,
+        10,
         null,
         null,
         1,
@@ -320,10 +325,34 @@
         1,
         null,
         null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/lib/sales_engine/merchant_builder.rb": [
+      "/Users/7maples/projects/sales_engine/lib/sales_engine/merchant_builder.rb": [
         1,
         1,
         null,
@@ -345,7 +374,7 @@
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/lib/sales_engine/merchant.rb": [
+      "/Users/7maples/projects/sales_engine/lib/sales_engine/merchant.rb": [
         1,
         1,
         1,
@@ -386,7 +415,7 @@
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/lib/sales_engine/item.rb": [
+      "/Users/7maples/projects/sales_engine/lib/sales_engine/item.rb": [
         1,
         1,
         null,
@@ -426,7 +455,7 @@
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/lib/sales_engine/item_builder.rb": [
+      "/Users/7maples/projects/sales_engine/lib/sales_engine/item_builder.rb": [
         1,
         1,
         null,
@@ -448,7 +477,7 @@
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/test/sales_engine/invoice_item_test.rb": [
+      "/Users/7maples/projects/sales_engine/test/sales_engine/invoice_item_test.rb": [
         1,
         1,
         1,
@@ -520,7 +549,7 @@
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/lib/sales_engine/invoice_item.rb": [
+      "/Users/7maples/projects/sales_engine/lib/sales_engine/invoice_item.rb": [
         1,
         1,
         null,
@@ -559,7 +588,7 @@
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/lib/sales_engine/invoice_items_builder.rb": [
+      "/Users/7maples/projects/sales_engine/lib/sales_engine/invoice_items_builder.rb": [
         1,
         1,
         null,
@@ -581,7 +610,7 @@
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/test/sales_engine/invoice_items_builder_test.rb": [
+      "/Users/7maples/projects/sales_engine/test/sales_engine/invoice_items_builder_test.rb": [
         1,
         1,
         null,
@@ -595,7 +624,7 @@
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/test/sales_engine/invoice_test.rb": [
+      "/Users/7maples/projects/sales_engine/test/sales_engine/invoice_test.rb": [
         1,
         1,
         1,
@@ -668,7 +697,7 @@
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/test/sales_engine/item_builder_test.rb": [
+      "/Users/7maples/projects/sales_engine/test/sales_engine/item_builder_test.rb": [
         1,
         1,
         1,
@@ -683,7 +712,7 @@
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/test/sales_engine/item_test.rb": [
+      "/Users/7maples/projects/sales_engine/test/sales_engine/item_test.rb": [
         1,
         1,
         1,
@@ -755,7 +784,7 @@
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/test/sales_engine/merchant_builder_test.rb": [
+      "/Users/7maples/projects/sales_engine/test/sales_engine/merchant_builder_test.rb": [
         1,
         1,
         1,
@@ -770,7 +799,7 @@
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/test/sales_engine/merchant_test.rb": [
+      "/Users/7maples/projects/sales_engine/test/sales_engine/merchant_test.rb": [
         1,
         1,
         1,
@@ -856,7 +885,7 @@
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/test/sales_engine/transaction_builder_test.rb": [
+      "/Users/7maples/projects/sales_engine/test/sales_engine/transaction_builder_test.rb": [
         1,
         1,
         1,
@@ -871,7 +900,7 @@
         null,
         null
       ],
-      "/Users/joshmejia/code/gschool/sales_engine/test/sales_engine/transaction_test.rb": [
+      "/Users/7maples/projects/sales_engine/test/sales_engine/transaction_test.rb": [
         1,
         1,
         1,
@@ -881,21 +910,13 @@
         1,
         null,
         1,
-        7,
+        11,
         null,
         null,
         1,
         1,
         1,
         1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        4,
-        null,
         1,
         null,
         null,
@@ -905,14 +926,14 @@
         4,
         null,
         1,
-        1,
-        1,
         null,
         null,
+        1,
         1,
         1,
         4,
         null,
+        1,
         1,
         1,
         null,
@@ -938,12 +959,57 @@
         4,
         null,
         1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        4,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        4,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        4,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        4,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        4843,
+        null,
         1,
         null,
         null,
         null
       ]
     },
-    "timestamp": 1361050236
+    "timestamp": 1361052100
   }
 }

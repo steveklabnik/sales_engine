@@ -17,6 +17,10 @@ module SalesEngine
       @result = data[:result]
     end
 
+    def invoice
+      SalesEngine::Invoice.find_by_id(@invoice_id)
+    end
+
     def self.create(transaction)
       @transactions ||= []
       @transactions << new(transaction)
