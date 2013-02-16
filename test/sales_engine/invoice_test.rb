@@ -42,5 +42,29 @@ class SalesEngine::InvoiceTest < MiniTest::Unit::TestCase
     assert_equal(invoice.merchant_id, 26)
   end
   
+  def test_it_can_find_by_customer_id
+    @csv.each do |row|
+      SalesEngine::Invoice.create(row)
+    end
+    invoice = SalesEngine::Invoice.find_by_customer_id(7)
+    assert_equal(invoice.merchant_id, 33)
+  end
+  
+  def test_it_can_find_by_merchant_id
+    @csv.each do |row|
+      SalesEngine::Invoice.create(row)
+    end
+    invoice = SalesEngine::Invoice.find_by_merchant_id(33)
+    assert_equal(invoice.customer_id, 7)
+  end
+  
+  def test_it_can_find_by_status
+    @csv.each do |row|
+      SalesEngine::Invoice.create(row)
+    end
+    invoice = SalesEngine::Invoice.find_by_status("canceled")
+    assert_equal(invoice.merchant_id, 75)
+  end
+  
 end
     

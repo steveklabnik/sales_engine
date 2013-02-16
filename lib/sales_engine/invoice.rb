@@ -32,5 +32,21 @@ module SalesEngine
       find_all_by("customer_id", value)
     end
 
+    def self.find_by_merchant_id(value)
+      find_by_("merchant_id", value)
+    end
+
+    def self.find_all_by_merchant_id(value)
+      find_all_by("merchant_id", value)
+    end
+
+    def self.find_by_status(value)
+      find_by_("status", value)
+    end
+
+    def self.find_all_by_status(value)
+      find_all_by("status", value)
+    end
+    
   end
 end
