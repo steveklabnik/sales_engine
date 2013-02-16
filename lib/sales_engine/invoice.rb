@@ -6,11 +6,13 @@ module SalesEngine
   class Invoice
 
     extend SalesEngine::Finder 
-    attr_reader :id, :customer_id
+    attr_reader :id, :customer_id, :merchant_id, :status
 
     def initialize(data="")
       @id = data[:id].to_i
-      @customer_id = data[:customer_id]
+      @customer_id = data[:customer_id].to_i
+      @merchant_id = data[:merchant_id].to_i
+      @status = data[:status]
     end
 
     def self.create(invoice)
@@ -19,7 +21,15 @@ module SalesEngine
     end
 
     def self.all
-      @transactions
+      @invoices
+    end
+
+    def self.find_by_customer_id(value)
+      find_by_("customer_id", value)
+    end
+
+    def self.find_all_by_customer_id(value)
+      find_all_by("customer_id", value)
     end
 
   end

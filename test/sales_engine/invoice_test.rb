@@ -13,7 +13,7 @@ class SalesEngine::InvoiceTest < MiniTest::Unit::TestCase
     @first_record = @csv.first
     invoice = SalesEngine::Invoice.new(@first_record)
     assert_kind_of(SalesEngine::Invoice, invoice)
-    assert_equal("1", invoice.customer_id)
+    assert_equal(1, invoice.customer_id)
   end
 
   def test_it_creates_array_of_invoice_objects
@@ -21,7 +21,7 @@ class SalesEngine::InvoiceTest < MiniTest::Unit::TestCase
     @csv.each do |row|
       SalesEngine::Invoice.create(row)
     end
-    assert_equal(5, :<=, SalesEngine::Invoice.all.size)
+    assert_operator(5, :<=, SalesEngine::Invoice.all.size)
   end
 
   def test_random_returns_random_invoice
@@ -31,7 +31,7 @@ class SalesEngine::InvoiceTest < MiniTest::Unit::TestCase
     end
     rand1 = SalesEngine::Invoice.random
     rand2 = SalesEngine::Invoice.random
-    refute_same(rand1.customer_id, rand2.customer_id)
+    refute_same(rand1.merchant_id, rand2.merchant_id)
   end
 
   def test_it_can_find_by_id
@@ -39,7 +39,7 @@ class SalesEngine::InvoiceTest < MiniTest::Unit::TestCase
       SalesEngine::Invoice.create(row)
     end
     invoice = SalesEngine::Invoice.find_by_id(1)
-    assert_equal(invoice, "26")
+    assert_equal(invoice.merchant_id, 26)
   end
   
 end
