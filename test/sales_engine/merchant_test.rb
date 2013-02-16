@@ -74,11 +74,26 @@ class SalesEngine::MerchantTest < MiniTest::Unit::TestCase
     first_record = @csv.first
     merchant = SalesEngine::Merchant.new(first_record)
 
-    item_csv = CSV.open("data/items.csv", :headers => true, :header_converters => :symbol)
+    item_csv = SalesEngine::Item.from_csv
     item_csv.each do |row|
       SalesEngine::Item.create(row)
     end
-    assert_equal(15, merchant.items.size)
+
+    merchant.items.each do |i|
+      puts i.name
+    end
+    #assert_equal(15, merchant.items.size)
   end
+
+  #def test_it_returns_an_associated_collection_of_associated_invoices
+  #  first_record = @csv.first
+  #  merchant = SalesEngine::Merchant.new(first_record)
+
+  #  invoice_csv = CSV.open("data/invoices.csv", :headers => true, :header_converters => :symbol)
+  #  invoice_csv.each do |row|
+  #    SalesEngine::Item.create(row)
+  #  end
+  #  assert_equal(15, merchant.invoices.size)
+  #end
 
 end
