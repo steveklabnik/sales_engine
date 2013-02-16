@@ -1,3 +1,5 @@
+require './test/sales_engine/test_helper'
+
 require 'minitest/autorun'
 require 'minitest/pride'
 
