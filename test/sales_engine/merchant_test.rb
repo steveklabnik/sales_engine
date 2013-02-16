@@ -1,7 +1,8 @@
 require 'minitest/autorun'
-require 'minitest/emoji'
+require 'minitest/pride'
 
 require './lib/sales_engine/merchant'
+require './lib/sales_engine/item'
 
 class SalesEngine::MerchantTest < MiniTest::Unit::TestCase
 
@@ -25,7 +26,7 @@ class SalesEngine::MerchantTest < MiniTest::Unit::TestCase
   end
 
   def test_random_returns_random_merchant
-    @csv = CSV.open("test/support/merchants_test.csv", :headers => true, :header_converters => :symbol)
+    @csv = CSV.open("data/merchants.csv", :headers => true, :header_converters => :symbol)
     @csv.each do |row|
       SalesEngine::Merchant.create(row)
     end
@@ -64,6 +65,19 @@ class SalesEngine::MerchantTest < MiniTest::Unit::TestCase
     end
     merchants = SalesEngine::Merchant.find_all_by_name("Schroeder-Jerde")
     assert_operator(1, :<=, merchants.size)
+  end
+
+# Integration Tests
+
+  def test_it_returns_a_collection_of_associated_items
+    first_record = @csv.first
+    merchant = SalesEngine::Merchant.new(first_record)
+
+    item_csv = CSV.open("data/items.csv", :headers => true, :header_converters => :symbol)
+    item_csv.each do |row|
+      SalesEngine::Item.create(row)
+    end
+    assert_equal(15, merchant.items.size)
   end
 
 end

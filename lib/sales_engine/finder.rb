@@ -14,7 +14,7 @@ module SalesEngine
     end
 
     def find_all_by_(attr, value)
-      all.select { |item| item.send(attr).downcase == value.downcase }
+      all.select { |item| item.send(attr).to_s.downcase == value.to_s.downcase }
     end
 
   end

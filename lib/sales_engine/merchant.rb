@@ -1,5 +1,6 @@
 require './lib/sales_engine/merchant_builder'
 require './lib/sales_engine/finder'
+require './lib/sales_engine/item'
 
 module SalesEngine
 
@@ -11,6 +12,10 @@ module SalesEngine
     def initialize(data="")
       @id = data[:id].to_i
       @name = data[:name]
+    end
+
+    def items
+      SalesEngine::Item.find_all_by_("merchant_id", @id)
     end
 
     def self.create(merchant)
