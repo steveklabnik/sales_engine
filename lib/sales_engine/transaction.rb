@@ -1,5 +1,6 @@
 require './lib/sales_engine/merchant_builder'
 require './lib/sales_engine/finder'
+require './lib/sales_engine/invoice'
 
 module SalesEngine
 
@@ -33,5 +34,29 @@ module SalesEngine
       find_all_by_("invoice_id", value)
     end
 
+    def self.find_by_credit_card_number(value)
+      find_by_("credit_card_number", value)
+    end
+
+    def self.find_all_by_credit_card_number(value)
+      find_all_by_("credit_card_number", value)
+    end
+
+    def self.find_by_credit_card_expiration_date(value)
+      find_by_("credit_card_expiration_date", value)
+    end
+
+    def self.find_all_by_credit_card_expiration_date(value)
+      find_all_by_("credit_card_expiration_date", value)
+    end
+
+    def self.find_by_result(value)
+      find_by_("result", value)
+    end
+
+    def self.find_all_by_result(value)
+      find_all_by_("result", value)
+    end
+    
   end
 end
