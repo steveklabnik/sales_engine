@@ -42,11 +42,11 @@ class SalesEngine::CustomerTest < MiniTest::Unit::TestCase
     assert_equal(customer.first_name, "Joey")
   end
 
-  def test_it_can_find_by_name
+  def test_it_can_find_by_first_name
     @csv.each do |row|
       SalesEngine::Customer.create(row)
     end
-    customer = SalesEngine::Customer.test_it_can_find_by_first_name("Joey")
+    customer = SalesEngine::Customer.find_by_first_name("Joey")
     assert_equal(customer.id, 1)
   end
 
