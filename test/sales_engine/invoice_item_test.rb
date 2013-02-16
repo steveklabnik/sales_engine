@@ -3,7 +3,7 @@ require 'minitest/pride'
 
 require './lib/sales_engine/invoice_item'
 
-class SalesEngine::InvoiceItemTest < MiniTest::Unit::
+class SalesEngine::InvoiceItemTest < MiniTest::Unit::TestCase
 
   def setup
     @csv = CSV.open("test/support/invoice_items_test.csv", :headers => true, :header_converters => :symbol)
@@ -11,7 +11,7 @@ class SalesEngine::InvoiceItemTest < MiniTest::Unit::
 
   def test_it_exists
     @first_record = @csv.first
-    invoice_item = SalesEngine::InvoiceItem.new
+    invoice_item = SalesEngine::InvoiceItem.new(@first_record)
     assert_kind_of(SalesEngine::InvoiceItem, invoice_item)
     assert_equal(539, invoice_item.item_id)
   end

@@ -1,4 +1,4 @@
-require './lib/sales_engine/invoice_item_builder'
+require './lib/sales_engine/invoice_items_builder'
 require './lib/sales_engine/finder'
 
 module SalesEngine
