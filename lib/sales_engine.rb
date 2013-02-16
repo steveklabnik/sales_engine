@@ -7,15 +7,12 @@ module SalesEngine
     SalesEngine::MerchantBuilder.from_csv
     #SalesEngine::MerchantBuilder.from_csv("test/support/merchants_test.csv")
     SalesEngine::MerchantBuilder.cycle_rows
+    SalesEngine::ItemBuilder.from_csv
+    SalesEngine::ItemBuilder.cycle_rows
   end
 end
 
 SalesEngine.startup
 
-a = SalesEngine::Merchant.find_all_by_name("schroeder-jerde")
-
-a.each {|m| puts "#{m.name} = #{m.id}" }
-
-#merchants.each do |merchant|
-#  puts "#{merchant.id} = #{merchant.name}"
-#end
+i = SalesEngine::Item.find_by_id(1)
+puts i.unit_price.class

@@ -50,6 +50,30 @@ class SalesEngine::TransactionTest < MiniTest::Unit::TestCase
     transaction = SalesEngine::Transaction.find_by_invoice_id(1)
     assert_equal(transaction.id, 1)
   end
+  
+  def test_it_can_find_by_credit_card_number
+    @csv.each do |row|
+      SalesEngine::Transaction.create(row)
+    end
+    transaction = SalesEngine::Transaction.find_by_credit_card_number(4654405418249632)
+    assert_equal(transaction.id, 1)
+  end
+
+  def test_it_can_find_by_credit_card_expiration_date
+    @csv.each do |row|
+      SalesEngine::Transaction.create(row)
+    end
+    transaction = SalesEngine::Transaction.find_by_credit_card_expiration_date(2013)
+    assert_equal(transaction.id, 1)
+  end
+
+  def test_it_can_find_by_result
+    @csv.each do |row|
+      SalesEngine::Transaction.create(row)
+    end
+    transaction = SalesEngine::Transaction.find_by_result("wtf")
+    assert_equal(transaction.id, 4)
+  end
 
   def test_find_by_only_returns_one_record
     @csv.each do |row|
@@ -65,6 +89,19 @@ class SalesEngine::TransactionTest < MiniTest::Unit::TestCase
     end
     transactions = SalesEngine::Transaction.find_all_by_invoice_id(1)
     assert_operator(1, :<=, transactions.size)
+  end
+
+# Integration Tests below
+  
+  def test_it_returns_a_collection_of_associated_invoices
+    first_record = @csv.first
+    transaction = SalesEngine::Transaction.new(first_record)
+
+    invoice_csv = CSV.open("data/invoices.csv", :headers => true, :header_converters => :symbol)
+    invoice_csv.each do |row|
+      SalesEngine::Invoice.create(row)
+    end
+    assert_equal(transaction.invoice.merchant_id, 26)
   end
 
 end
