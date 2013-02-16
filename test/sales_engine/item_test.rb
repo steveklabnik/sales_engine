@@ -51,6 +51,30 @@ class SalesEngine::ItemTest < MiniTest::Unit::TestCase
     assert_equal(item.id, 1)
   end
 
+  def test_it_can_find_by_description
+    @csv.each do |row|
+      SalesEngine::Item.create(row)
+    end
+    item = SalesEngine::Item.find_by_description("It's red and shiny and pretty")
+    assert_equal(item.id, 1)
+  end
+
+  def test_it_can_find_by_unit_price
+    @csv.each do |row|
+      SalesEngine::Item.create(row)
+    end
+    item = SalesEngine::Item.find_by_unit_price(BigDecimal.new(75107))
+    assert_equal(item.id, 1)
+  end
+
+  def test_it_can_find_by_merchant_id
+    @csv.each do |row|
+      SalesEngine::Item.create(row)
+    end
+    item = SalesEngine::Item.find_by_merchant_id(45)
+    assert_equal(item.id, 1)
+  end
+
   def test_find_by_only_returns_one_record
     @csv.each do |row|
       SalesEngine::Item.create(row)
