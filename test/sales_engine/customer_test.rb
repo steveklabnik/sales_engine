@@ -50,6 +50,14 @@ class SalesEngine::CustomerTest < MiniTest::Unit::TestCase
     assert_equal(customer.id, 1)
   end
 
+  def test_it_can_find_by_last_name
+    @csv.each do |row|
+      SalesEngine::Customer.create(row)
+    end
+    customer = SalesEngine::Customer.find_by_last_name("Ondricka")
+    assert_equal(customer.id, 1)
+  end
+
   def test_find_by_only_returns_one_record
     @csv.each do |row|
       SalesEngine::Customer.create(row)

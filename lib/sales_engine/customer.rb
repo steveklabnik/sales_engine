@@ -31,5 +31,13 @@ module SalesEngine
       find_all_by_("first_name", value)
     end
 
+    def self.find_by_last_name(value)
+      find_by_("last_name", value)
+    end
+
+    def self.find_all_by_last_name(value)
+      find_all_by_("last_name", value)
+    end
+    
   end
 end
