@@ -51,7 +51,7 @@ class SalesEngine::MerchantTest < MiniTest::Unit::TestCase
     assert_equal(merchant.id, 1)
   end
 
-  def test_find_by_only_returns_one_record
+  def test_find_by_name_only_returns_one_record
     @csv.each do |row|
       SalesEngine::Merchant.create(row)
     end
@@ -59,7 +59,7 @@ class SalesEngine::MerchantTest < MiniTest::Unit::TestCase
     assert_equal(merchant.id, 1)
   end
 
-  def test_find_all_by_returns_multiple_records
+  def test_find_all_by_name_returns_multiple_records
     @csv.each do |row|
       SalesEngine::Merchant.create(row)
     end
