@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 
-require './lib/sales_engine/invoice_items_builder'
+require './lib/sales_engine/invoice_item_builder'
 
 class SalesEngine::MerchantBuilderTest < MiniTest::Unit::TestCase
   def test_it_is_initialized_from_a_csv

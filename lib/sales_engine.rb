@@ -5,6 +5,8 @@ require 'sales_engine/item_builder'
 require 'sales_engine/item'
 require 'sales_engine/invoice_builder'
 require 'sales_engine/invoice'
+require 'sales_engine/invoice_item_builder'
+require 'sales_engine/invoice_item'
 
 module SalesEngine
   def self.startup
@@ -14,14 +16,16 @@ module SalesEngine
     SalesEngine::ItemBuilder.cycle_rows
     SalesEngine::InvoiceBuilder.from_csv
     SalesEngine::InvoiceBuilder.cycle_rows
+    SalesEngine::InvoiceItemBuilder.from_csv("./test/support/invoice_item_test.csv")
+    SalesEngine::InvoiceItemBuilder.cycle_rows
   end
 end
 
 SalesEngine.startup
 
-merchant = SalesEngine::Merchant.all.first
+invoice_items = SalesEngine::InvoiceItem.find_all_by_item_id(539)
 
-puts merchant.invoices.size
+puts invoice_items.size
 
 
 #items = SalesEngine::Merchant.items
