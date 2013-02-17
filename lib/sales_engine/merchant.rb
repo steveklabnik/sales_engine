@@ -18,6 +18,10 @@ module SalesEngine
       SalesEngine::Item.find_all_by_("merchant_id", @id)
     end
 
+    def invoices
+      SalesEngine::Invoice.find_all_by_("merchant_id", @id)
+    end
+
     def self.create(merchant)
       @merchants ||= []
       @merchants << new(merchant)

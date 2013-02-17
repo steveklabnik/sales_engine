@@ -3,6 +3,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 
 require './lib/sales_engine/merchant'
+require './lib/sales_engine/item_builder'
 require './lib/sales_engine/item'
 
 class SalesEngine::MerchantTest < MiniTest::Unit::TestCase
@@ -19,7 +20,6 @@ class SalesEngine::MerchantTest < MiniTest::Unit::TestCase
   end
 
   def test_it_creates_array_of_merchant_objects
-    count = 1
     @csv.each do |row|
       SalesEngine::Merchant.create(row)
     end
@@ -70,30 +70,25 @@ class SalesEngine::MerchantTest < MiniTest::Unit::TestCase
 
 # Integration Tests
 
-  def test_it_returns_a_collection_of_associated_items
-    first_record = @csv.first
-    merchant = SalesEngine::Merchant.new(first_record)
-
-    item_csv = SalesEngine::Item.from_csv
-    item_csv.each do |row|
-      SalesEngine::Item.create(row)
-    end
-
-    merchant.items.each do |i|
-      puts i.name
-    end
-    #assert_equal(15, merchant.items.size)
-  end
-
-  #def test_it_returns_an_associated_collection_of_associated_invoices
-  #  first_record = @csv.first
-  #  merchant = SalesEngine::Merchant.new(first_record)
-
-  #  invoice_csv = CSV.open("data/invoices.csv", :headers => true, :header_converters => :symbol)
-  #  invoice_csv.each do |row|
-  #    SalesEngine::Item.create(row)
-  #  end
-  #  assert_equal(15, merchant.invoices.size)
-  #end
-
+#  def test_it_returns_a_collection_of_associated_items
+#    SalesEngine::MerchantBuilder.from_csv
+#    SalesEngine::MerchantBuilder.cycle_rows
+#    merchant = SalesEngine::Merchant.all.first
+#
+#    SalesEngine::ItemBuilder.from_csv
+#    SalesEngine::ItemBuilder.cycle_rows
+#
+#    assert_equal(15, merchant.items.size)
+#  end
+#
+#  def test_it_returns_an_associated_collection_of_associated_invoices
+#    SalesEngine::MerchantBuilder.from_csv
+#    SalesEngine::MerchantBuilder.cycle_rows
+#    merchant = SalesEngine::Merchant.all.first
+#
+#    SalesEngine::InvoiceBuilder.from_csv
+#    SalesEngine::InvoiceBuilder.cycle_rows
+#
+#    assert_equal(15, merchant.invoices.size)
+#  end
 end
